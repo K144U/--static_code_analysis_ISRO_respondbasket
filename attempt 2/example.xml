@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+    <book>
+        <title>Java Programming</title>
+        <author>John Doe</author>
+        <price>29.99</price>
+    </book>
+    <book>
+        <title>Data Structures and Algorithms</title>
+        <author>Jane Smith</author>
+        <price>39.95</price>
+    </book>
+</bookstore>
