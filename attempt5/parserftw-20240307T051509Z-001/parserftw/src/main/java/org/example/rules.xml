@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<triall>
+    <rule id="multiple_declarations_in_single_line" enabled="false">
+        <description>Check for multiple variable declarations in a single line</description>
+        <condition><![CDATA[
+            containsRegex(variableDeclaration, "\b(var|int|double|String)\s+\w+\s*(,(\s*\w+\s*)+)?;")
+        ]]></condition>
+        <pattern>\b(var|int|double|String)\s+\w+\s*(,(\s*\w+\s*)+)?;</pattern>
+        <message>Multiple variable declarations in a single line are not allowed.</message>
+    </rule>
+
+    <rule id="multiple_initializations_in_single_line" enabled="false">
+        <description>Check for multiple variable initializations in a single line</description>
+        <condition><![CDATA[
+            containsRegex(variableInitialization, "\\b\\w+\\s*=\\s*[^,;]+(,\\s*\\w+\\s*=\\s*[^,;]+)+\\s*;")
+        ]]></condition>
+        <pattern>\\b\\w+\\s+\\w+\\s*(?:=(?:\\s*\\S+)?(?:\\s*,\\s*\\w+\\s*=\\s*\\S+)?)*(?:,\\s*\\w+\\s*(?:=(?:\\s*\\S+)?(?:\\s*,\\s*\\w+\\s*=\\s*\\S+)?)*\\s*)?;</pattern>
+        <message>Multiple variable initializations in a single line are not allowed.</message>
+    </rule>
+
+    <rule id="class_naming_convention" enabled="false">
+        <description>Check for class naming convention</description>
+        <condition><![CDATA[
+            !className.matches("^[a-z][a-zA-Z0-9]*$")
+        ]]></condition>
+        <pattern>^[a-z][a-zA-Z0-9]*$</pattern>
+        <message>Does not match class name convention.</message>
+    </rule>
+
+    <rule id="unused_local_variable" enabled="false">
+        <description>Check for unused local variables</description>
+        <condition><![CDATA[
+            containsRegex(methodBody, "\\b" + variableName + "\\b.*(?=;)")
+        ]]></condition>
+        <pattern>\\b" + variableName + "\\b.*(?=;)</pattern>
+        <message>Has unused local variables.</message>
+    </rule>
+</triall>
