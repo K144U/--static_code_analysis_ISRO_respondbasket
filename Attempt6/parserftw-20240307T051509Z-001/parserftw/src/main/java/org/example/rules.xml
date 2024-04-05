@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<triall>
+    <rule id="multiple_declarations_in_single_line" enabled="true">
+        <description>Check for multiple variable declarations in a single line</description>
+        <condition><![CDATA[
+            containsRegex(variableDeclaration, "")
+        ]]></condition>
+        <pattern>\b(var|int|double|String)\s+\w+\s*(,(\s*\w+\s*)+)?;</pattern>
+        <message>Multiple variable declarations in a single line are not allowed.</message>
+    </rule>
+
+</triall>
