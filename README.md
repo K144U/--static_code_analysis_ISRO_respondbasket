@@ -24,15 +24,46 @@ The Static Code Analyzer is a tool designed to analyze Java source code statical
 Consider the following snippet of Java code:
 
 ```java
+package org.example;
+
 public class Example {
+
     public static void main(String[] args) {
-        int x = 10; // Valid declaration
-        int y, z; // Violation: Multiple variable declarations in a single line
+        int a = 10; // Valid
+        int b, c; // Multiple variable declarations in a single line
+        int d, e = 20; // Multiple variable initializations in a single line
+
+        for (int i = 0; i < 10; i = i + 2) { // Reassigning loop variable
+            // Do something
+        }
+
+        // Abstract class without any meaningful methods
+        abstract class AbstractWithoutMethods {
+        }
+
+        try {
+            // some code that may throw an Exception
+        } catch (Exception ex) {
+            throw ex; // Rethrowing the same exception
+        }
+
+        StringBuffer strBuf = new StringBuffer(); // StringBuffer in long-lived object
+        strBuf.append("some string data");
+    }
+
+    public void CalculateSomeResult(int param1) {
+        param1 = 10; // Reassigning parameter value
+    }
+
+    public void myMethod() { // Incorrect naming convention
+        int x = 5; // Unused local variable
     }
 }
 ```
 
-Running the Static Code Analyzer on this code would detect the violation of the rule prohibiting multiple variable declarations in a single line.
+Running the Static Code Analyzer on this code would detect the following violations:
+![StaticCodeAnalyser](https://github.com/K144U/--static_code_analysis_ISRO_respondbasket/assets/133573718/80e229c5-9fc2-45b1-a8fc-2abcb9cbadae)
+
 
 ## Contributing
 
