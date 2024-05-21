@@ -62,6 +62,7 @@ public class Example {
 ```
 
 Running the Static Code Analyzer on this code would detect the following violations:
+
 ![StaticCodeAnalyser](https://github.com/K144U/--static_code_analysis_ISRO_respondbasket/assets/133573718/80e229c5-9fc2-45b1-a8fc-2abcb9cbadae)
 
 
